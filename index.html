@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agrawal Trading Company - Tea Cup Marketing</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="modal.css" />
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+        <img src="profileIcon.png" alt="ATC_logo" class="logo-img">
+        Agrawal Marketing Co.
+    </div>
+    <nav class="navbar">
+      <a href="#home">Home</a>
+      <a href="about.html">About</a>
+      <a href="#plans">Plans</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to Agrawal Marketing Co.</h1>
+      <p>Your trusted partner in tea cup marketing services.</p>
+    </div>
+  </section>
+
+  <!-- Plans Section -->
+  <section class="plans" id="plans">
+    <h2>Our Plans</h2>
+    <div class="plan-cards">
+      <div class="plan-card">
+        <div class="plan-image standard"></div>
+        <div class="plan-content">
+          <div>
+            <div class="plan-title">Standard Plan</div>
+            <div class="plan-price">₹0.18 / Cup</div>
+            <div class="plan-description">Perfect for small businesses looking for simple branding.</div>
+            <ul class="features">
+              <li>Basic logo printing</li>
+              <li>Whole city coverage</li>
+              <!-- <li>Monthly reporting</li> -->
+              <li>Email support</li>
+            </ul>
+          </div>
+          <button class="plan-select-btn" data-plan="Basic">Select this plan</button>
+        </div>
+      </div>
+    
+      <div class="plan-card">
+        <div class="plan-image premium"></div>
+        <div class="plan-content">
+          <div>
+            <div class="plan-title">Premium Plan</div>
+            <div class="plan-price">₹0.25 / Cup</div>
+            <div class="plan-description">Advanced branding with QR code.</div>
+            <ul class="features">
+              <li>Logo + QR code</li>
+              <li>Whole city coverage</li>
+              <!-- <li>Personalized web link</li> -->
+              <li>Email support</li>
+            </ul>
+          </div>
+          <button class="plan-select-btn" data-plan="Premium">Select this plan</button>
+        </div>
+      </div>
+    
+      <div class="plan-card">
+        <div class="plan-image custom"></div>
+        <div class="plan-content">
+          <div>
+            <div class="plan-title">Custom Plan</div>
+            <div class="plan-price">₹0.35/ cup</div>
+            <div class="plan-description">Tailored plan for targeted customers and analytics.</div>
+            <ul class="features">
+              <li>Logo + Custom Link</li>
+              <li>Targeted regional reach</li>
+              <li>Analytics dashboard</li>
+              <!-- <li>Dedicated account manager</li> -->
+            </ul>
+          </div>
+          <button class="plan-select-btn" data-plan="Custom">Select this plan</button>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="calculator-cta">
+      <p>Not sure which plan is best for your business?</p>
+      <a href="calculator.html">
+        <button id="openCalculatorBtn"><i class="fa-solid fa-calculator"></i>Try Our Cost Calculator</i></button>
+      </a>
+    </div>
+    
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#plans">Plans</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section" id="contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Email: contact.agrawalmarketingco@gmail.com</li>
+          <li>Phone: +91-9819796036 | 9136396310</li>
+          <li>Shop no. -5 jal Trimurti CHS LTD Near Shreen Ram Jewellers , Sneha hosputal lane Navghar road Bhayandar east</li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="socials">
+          <!-- <a href="#"><i class="fab fa-linkedin"></i></a> -->
+           
+          <a href="https://www.instagram.com/agrawaltradingco.supplies/"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/9819796036?text=Hello%20I%20am%20reaching%20out%20to%20inquire%20about%20marketing%20services." target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+
+          <!-- <a href="#"><i class="fab fa-twitter"></i></a> -->
+          <a href="https://www.facebook.com/profile.php?id=61581787137497"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Agrawal Marketing Company. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!--Modal-->
+  <!-- Modal Calculator -->
+<div id="calculatorModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeCalculatorBtn">&times;</span>
+    <div class="modal-page" id="calcPage1">
+      <h2>Calculate Your Cost</h2>
+      <div class="plans-overview">
+        <div class="plan-box"><strong>Basic:</strong> Logo only</div>
+        <div class="plan-box"><strong>Premium:</strong> Logo + QR + Web Link</div>
+        <div class="plan-box"><strong>Custom:</strong> Targeted + QR + Mini Web</div>
+      </div>
+      <div class="input-group">
+        <label for="qtyInput">Enter Quantity of Cups:</label>
+        <input type="number" id="qtyInput" placeholder="e.g. 5000" />
+      </div>
+      <p id="calcOutput">Estimated cost will appear here...</p>
+      <button id="continueBtn">Continue →</button>
+    </div>
+    <div class="modal-page" id="calcPage2" style="display: none;">
+      <h2>Send Your Enquiry</h2>
+      <div class="input-group"><label>Name:</label><input type="text" id="nameInput" /></div>
+      <div class="input-group"><label>Business Name:</label><input type="text" id="businessInput" /></div>
+      <div class="input-group"><label>Contact Number:</label><input type="text" id="contactInput" /></div>
+      <div class="input-group"><label>City:</label><input type="text" id="cityInput" /></div>
+      <div class="input-group">
+        <label>Select Plan:</label>
+        <select id="planSelect">
+          <option value="Basic">Basic</option>
+          <option value="Premium">Premium</option>
+          <option value="Custom">Custom</option>
+        </select>
+      </div>
+      <button id="whatsappBtn">📩 Send via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+  <script src="modal.js"></script>
+</body>
+</html>

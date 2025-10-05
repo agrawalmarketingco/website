@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing ROI Calculator</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    :root {
+      --primary: #A0AE92;
+      --background: #F4EFE7;
+      --card-bg: #E4DED3;
+      --text-dark: #2f2f2f;
+      --white: #fff;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      --border-radius: 12px;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--background);
+      margin: 0;
+      padding: 2rem;
+      color: var(--text-dark);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .dashboard {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      display: none;
+    }
+
+    .calculator {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius);
+    }
+
+    button {
+      background-color: var(--primary);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 1rem;
+      width: 100%;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #8d9c7f;
+    }
+
+    .output {
+      margin-top: 2rem;
+    }
+
+    .chart-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-around;
+    }
+
+    canvas {
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .summary {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Marketing ROI Calculator</h1>
+
+    <!-- DASHBOARD -->
+    <!-- Dashboard -->
+<div id="dashboard" style="display:none;">
+  <canvas id="pieChart"></canvas>
+    <canvas id="barChart"></canvas>
+    <!-- Cup Marketing Summary -->
+    <div id="cupMarketingSummary"></div>
+  
+    <!-- Other Media Summary -->
+    <div id="otherMediaSummary"></div>
+  
+    <!-- Charts -->
+    
+  </div>
+  
+
+    <!-- CALCULATOR -->
+    <div class="calculator">
+      <div class="form-group">
+        <label for="budget">Marketing Budget (₹)</label>
+        <input type="number" id="budget" placeholder="Enter your budget" />
+      </div>
+      <div class="form-group">
+        <label for="region">Target Region</label>
+        <select id="region">
+          <option value="metro">Metro</option>
+          <option value="urban">Urban</option>
+          <option value="rural">Rural</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cups">Expected Cup Quantity</label>
+        <input type="number" id="cups" placeholder="Enter quantity of cups" />
+      </div>
+      <button onclick="calculateROI()">Calculate</button>
+    </div>
+  </div>
+
+  <script>
+   // Declare global variables to store chart instances
+let pieChartInstance, barChartInstance;
+
+// Function to calculate marketing ROI and comparison
+function calculateROI() {
+  const budget = parseFloat(document.getElementById('budget').value);
+  const cups = parseInt(document.getElementById('cups').value);
+
+  if (!budget || !cups) {
+    alert("Please enter valid values for all fields.");
+    return;
+  }
+
+  // Simulated costs per marketing method
+  const costs = {
+    cups: 1.5,  // ₹ per cup
+    print: 6,   // ₹ per print campaign
+    social: 4,  // ₹ per social media campaign
+    hoarding: 10 // ₹ per hoarding campaign
+  };
+
+  // Simulated reach per ₹ for each marketing method
+  const reachPerRupee = {
+    cups: 1.8,     // people per ₹ (cups)
+    print: 0.9,    // people per ₹ (print)
+    social: 1.2,   // people per ₹ (social)
+    hoarding: 0.6  // people per ₹ (hoarding)
+  };
+
+  // Calculate Cup Marketing cost and reach
+  const cupCost = cups * costs.cups;
+  const reachCups = cupCost * reachPerRupee.cups;
+  const roiCups = reachCups / cupCost;  // ROI for Cups
+
+  // Calculate the cost and reach for Other Media (Print, Social, Hoardings)
+  const remainingBudget = budget - cupCost;  // Remaining budget for other channels
+
+  // Assuming the remaining budget is divided equally between Print, Social, and Hoardings
+  const remainingPerMethod = remainingBudget / 3;
+
+  // Calculate costs and reach for each alternative marketing method
+  const printCost = remainingPerMethod;
+  const socialCost = remainingPerMethod;
+  const hoardingCost = remainingPerMethod;
+
+  const reachPrint = printCost * reachPerRupee.print;
+  const reachSocial = socialCost * reachPerRupee.social;
+  const reachHoarding = hoardingCost * reachPerRupee.hoarding;
+
+  const totalReachOtherMedia = reachPrint + reachSocial + reachHoarding;
+  const totalCostOtherMedia = printCost + socialCost + hoardingCost;
+
+  const roiOtherMedia = totalReachOtherMedia / totalCostOtherMedia;  // ROI for Other Media
+
+  // Update the analytics dashboard
+  document.getElementById('dashboard').style.display = 'Flex';
+
+  // Display summary for Cup Marketing
+  document.getElementById('cupMarketingSummary').innerHTML = `
+    <h3>Cup Marketing</h3>
+    <p><strong>Cost:</strong> ₹${cupCost.toLocaleString()}</p>
+    <p><strong>People Reached:</strong> ${Math.round(reachCups).toLocaleString()}</p>
+    <p><strong>ROI (per ₹):</strong> ${roiCups.toFixed(2)}</p>
+  `;
+
+  // Display summary for Other Media
+  document.getElementById('otherMediaSummary').innerHTML = `
+    <h3>Other Media (Print, Social, Hoardings)</h3>
+    <p><strong>Total Cost:</strong> ₹${totalCostOtherMedia.toLocaleString()}</p>
+    <p><strong>People Reached:</strong> ${Math.round(totalReachOtherMedia).toLocaleString()}</p>
+    <p><strong>ROI (per ₹):</strong> ${roiOtherMedia.toFixed(2)}</p>
+  `;
+
+  // Pie chart comparison of spend distribution
+  if (pieChartInstance) {
+    pieChartInstance.destroy();  // Destroy the old chart before creating a new one
+  }
+
+  pieChartInstance = new Chart(document.getElementById('pieChart'), {
+    type: 'pie',
+    data: {
+      labels: ['Cups', 'Print', 'Social', 'Hoardings'],
+      datasets: [{
+        data: [cupCost, printCost, socialCost, hoardingCost],
+        backgroundColor: ['#A0AE92', '#D0CBBF', '#E4DED3', '#c2c2b4']
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Marketing Spend Distribution'
+        }
+      }
+    }
+  });
+
+  // Bar chart comparison of reach
+  if (barChartInstance) {
+    barChartInstance.destroy();  // Destroy the old chart before creating a new one
+  }
+
+  barChartInstance = new Chart(document.getElementById('barChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Cups', 'Print', 'Social', 'Hoardings'],
+      datasets: [{
+        label: 'People Reached',
+        data: [reachCups, reachPrint, reachSocial, reachHoarding],
+        backgroundColor: ['#A0AE92', '#D0CBBF', '#E4DED3', '#c2c2b4']
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'People Reached Comparison'
+        }
+      }
+    }
+  });
+
+  // Scroll to the top after calculation
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+
+  </script>
+  
+</body>
+</html>

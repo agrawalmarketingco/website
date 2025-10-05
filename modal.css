@@ -1,0 +1,138 @@
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+  }
+  
+  /* Modal Box */
+  .modal-content {
+    background-color: #f4efdf;
+    color: #2f4a39;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #2f4a39;
+    cursor: pointer;
+  }
+  
+  /* Pages */
+  .modal-page {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .input-group {
+    margin: 1rem 0;
+  }
+  .input-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+  .input-group input,
+  .input-group select {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  button {
+    background-color: #2f4a39;
+    color: #f4efdf;
+    border: none;
+    padding: 0.8rem 1.4rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem;
+  }
+  
+  button:hover {
+    background-color: #3a624a;
+  }
+  
+  .plans-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .plan-box {
+    background: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  /* CTA Section in Plans */
+  .calculator-cta {
+    margin-top: 3rem;
+    text-align: center;
+  }
+  
+  .calculator-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .calculator-cta button {
+    background-color: #2f4a39;
+    color: #f4efdf;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .calculator-cta button:hover {
+    background-color: #3a624a;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 600px) {
+    .modal-content {
+      padding: 1.2rem;
+    }
+    .plans-overview {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  select:disabled {
+    background-color: #e5e5e5;
+    color: #888;
+    cursor: not-allowed;
+  }
+  .plan-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2F4A39;
+    margin-bottom: 0.5rem;
+  }
+    

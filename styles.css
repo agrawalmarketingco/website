@@ -1,0 +1,425 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    background-color: #F4EFDF;
+    color: #2F4A39;
+  }
+  .header .logo-img{
+    width:4.3rem;
+    border-radius: 50%;
+  }
+  
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #2F4A39;
+    color: #F4EFDF;
+    /* position: sticky; */
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:8px;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .navbar a {
+    color: #F4EFDF;
+    text-decoration: none;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  .menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+  
+  /* Hero Section */
+  /* .hero {
+    background: url('BGBG.jpg') no-repeat center center/cover;
+    color: #242121;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    filter: blur(5px);
+    position: relative;
+  } */
+
+  .hero {
+    
+    position: relative;
+    height: 100vh; /* You can adjust the height as needed */
+    overflow: hidden; /* Ensure the background doesn't overflow */
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(2px); /* Apply the blur effect to the background image */
+    z-index: -1; /* Place the pseudo-element behind the content */
+}
+
+.hero-content {
+    position: relative; /* Ensure content appears above the blurred background */
+    color: white; /* Make text color readable on background */
+    text-align: center;
+    padding: 3rem 2rem; /* Adjust padding as needed */
+}
+
+h1 {
+    font-size: 3rem; /* Adjust font size */
+    margin-bottom: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+p {
+    font-size: 1.2rem; /* Adjust font size */
+    font-weight: bold;
+}
+
+  
+  /* .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+  } */
+  
+  /* Plans Section */
+  .plans {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  
+  .plan-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .plan-card {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    width: 300px;
+    overflow: hidden;
+    /* border-top: 5px solid #2F4A39; */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .plan-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .plan-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .plan-image.standard {
+    background-image: url('standard.png');
+    background-color:#2F4A39; 
+  }
+  
+  .plan-image.premium {
+    background-image: url('premium1.png');
+    background-color:#2F4A39;
+  }
+  
+  .plan-image.custom {
+    background-image: url('custom1.png');
+    background-color:#2F4A39;
+  }
+  
+  .plan-card h3 {
+    margin: 1rem 0;
+  }
+  
+  .plan-card ul {
+    list-style: none;
+    padding: 0 1.5rem;
+    text-align: left;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .plan-card li {
+    margin: 0.5rem 0;
+  }
+  
+  .plan-card button {
+    background-color: #2F4A39;
+    color: #F4EFDF;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .plan-card button:hover {
+    background-color: #3a624a;
+  }
+  
+  /* Footer */
+  /* .footer {
+    background-color: #2F4A39;
+    color: #F4EFDF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    height:vh;
+  }
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-column.center {
+    text-align: center;
+  }
+  
+  .footer-column.right {
+    text-align: right;
+  }
+  
+  .footer a {
+    display: block;
+    color: #F4EFDF;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
+   */
+
+   footer {
+    background-color: #2F4A39;
+    color: #fff;
+    margin-top: 50px;
+    padding: 50px 20px;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+  }
+
+  /* Footer sections */
+  .footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+
+  .footer-section ul li a {
+    color: #fff;
+    transition: color 0.3s;
+    text-decoration: none;
+  }
+
+  .footer-section ul li a:hover {
+    color: #cce7e6;
+    text-decoration: underline;
+  }
+
+  /* Social icons */
+  .socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .socials a {
+    color: #fff;
+    font-size: 1.4rem;
+    transition: transform 0.3s, color 0.3s;
+  }
+
+  .socials a:hover {
+    color: #cce7e6;
+    transform: scale(1.2);
+  }
+
+  /* Footer bottom */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 15px;
+    font-size: 0.9rem;
+    color: #e0e0e0;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .navbar {
+      display: none;
+      flex-direction: column;
+      background-color: #2F4A39;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      padding: 1rem;
+      border-radius: 8px;
+      z-index: 100;
+    }
+  
+    .navbar.active {
+      display: flex;
+    }
+  
+    .menu-toggle {
+      display: block;
+    }
+  
+    .plan-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-content h1{
+      padding-top: 40px;
+      font-size: 2.5rem;
+    }
+  
+    /* .footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .footer-column {
+      text-align: center !important;
+    } */
+  }
+
+  .plan-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 340px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .plan-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .plan-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem;
+    flex: 1;
+  }
+  
+  .plan-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #2F4A39;
+  }
+  
+  .plan-price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #3a624a;
+    margin-bottom: 0.5rem;
+  }
+  
+  .plan-description {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+  }
+  
+  .plan-card ul.features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.2rem;
+  }
+  
+  .plan-card ul.features li {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .plan-card .plan-select-btn {
+    background-color: #2F4A39;
+    color: #F4EFDF;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .plan-card .plan-select-btn:hover {
+    background-color: #3a624a;
+  }
+  
+.fa-solid{
+  margin-right : 4px
+}

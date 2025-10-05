@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Marketing Calculator - Paper Cup Advertising</title>
+    <link rel="stylesheet" href="calculator.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>Paper Cup Advertising Calculator</h1>
+            <p>Calculate your marketing metrics using paper cup ads</p>
+        </header>
+
+        <!-- Input Section (Calculator Form) -->
+        <section class="inputs">
+            <div class="input-group">
+                <label for="numCups">Number of Cups</label>
+                <input type="number" id="numCups" value="500000" min="500000">
+            </div>
+            <div class="input-group">
+                <label for="plan">Plan</label>
+                <select id="plan">
+                    <option value="0.18">Basic (₹0.18 per cup)</option>
+                    <option value="0.25">Standard (₹0.25 per cup)</option>
+                    <option value="0.35">Premium (₹0.35 per cup)</option>
+                </select>
+            </div>
+            <button id="calculateBtn">Calculate</button>
+        </section>
+
+        <!-- Results Section (Visible after Calculate) -->
+        <section class="results" id="results" style="display: none;">
+            <div class="card total-budget">
+                <h3>Total Budget <i class="fa-solid fa-indian-rupee-sign"></i></h3>
+                <p id="total-budget">₹0</p>
+            </div>
+            <div class="card estimated-reach">
+                <h3>Estimated Reach <i class="fa-solid fa-users"></i></h3>
+                <p id="estimated-reach">0 People</p>
+            </div>
+            <div class="card cost-per-person">
+                <h3>Cost per Person <i class="fa-solid fa-user"></i></h3>
+                <p id="cost-per-person">₹0</p>
+            </div>
+            <!-- <div class="card estimated-conversions">
+                <h3>Estimated Conversions 🎯</h3>
+                <p id="estimated-conversions">0</p>
+            </div>
+            <div class="card cost-per-conversion">
+                <h3>Cost per Conversion 🔄</h3>
+                <p id="cost-per-conversion">₹0</p>
+            </div> -->
+        </section>
+
+        <!-- Chart Section (Side-by-Side) -->
+        <section class="charts" id="charts" style="display: none;">
+    <div class="chart-container">
+        <h3>Reach Comparison: Cup Marketing vs Traditional Marketing vs Digital Marketing</h3>
+        <canvas id="reachChart"></canvas>
+    </div>
+    <div class="chart-container">
+        <h3>Brand Visibility Time Comparision</h3>
+        <canvas id="budgetChart"></canvas>
+    </div>
+</section>
+
+    </div>
+
+    <script src="calculator.js"></script>
+</body>
+
+</html>
