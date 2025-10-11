@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | Agrawal Marketing Company</title>
+  
+  <!-- Link to your external CSS file for header and footer styling -->
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Gallery page styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #F4EFDF;
+      color: #2F4A39;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: fadeIn 2s ease;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <img src="profileIcon.png" alt="ATC_logo" class="logo-img">
+      Agrawal Marketing Co.
+    </div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#plans">Plans</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+  </header>
+
+  <!-- GALLERY SECTION -->
+  <section class="gallery" id="gallery">
+    <img src="gallery_1.png" alt="Custom printed paper cup 1">
+    <img src="gallery_2.png" alt="Custom printed paper cup 1">
+    <img src="gallery_3.png" alt="Custom printed paper cup 1">
+    <img src="gallery_4.png" alt="Custom printed paper cup 1">
+    <img src="gallery_5.png" alt="Custom printed paper cup 1">
+    <img src="gallery_6.png" alt="Custom printed paper cup 1">
+    <img src="gallery_7.png" alt="Custom printed paper cup 1">
+    <!-- <img src="gallery_8.jpeg" alt="Custom printed paper cup 1"> -->
+    <img src="gallery_9.jpg" alt="Custom printed paper cup 1">
+    
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <!-- Quick Links -->
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#plans">Plans</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="footer-section" id="contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Email: contact.agrawalmarketingco@gmail.com</li>
+          <li>Phone: +91-9819796036 | 9136396310</li>
+          <li>Shop no. -5 jal Trimurti CHS LTD Near Shreen Ram Jewellers , Sneha hosputal lane Navghar road Bhayandar east</li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="socials">
+          <a href="https://www.instagram.com/agrawaltradingco.supplies/"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/9819796036?text=Hello%20I%20am%20reaching%20out%20to%20inquire%20about%20marketing%20services." target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61581787137497"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 Agrawal Marketing Company. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- JS for Mobile Menu Toggle (if needed) -->
+  <script>
+    document.getElementById("menu-toggle").addEventListener("click", function() {
+      document.querySelector(".navbar").classList.toggle("active");
+    });
+  </script>
+
+</body>
+</html>
